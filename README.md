@@ -4,139 +4,104 @@
 
 This project demonstrates the end-to-end process of building a Data Warehouse and performing Analytics using SQL Server.
 The solution integrates data from two different source systems (CRM & ERP), applies ETL (Extract, Transform, Load) processes, and organizes data into a Medallion Architecture (Bronze → Silver → Gold) for structured analysis.
-
 The final Gold Layer follows a Star Schema design with Dimension & Fact tables, enabling structured reporting and advanced analytics.
 
 📂 Source Data
+
 1️⃣ CRM System (source_crm)
-
-cust_info.csv → Customer details
-
-prd_info.csv → Product details
-
-sales_details.csv → Sales transactions
-
+1.cust_info.csv → Customer details
+2.prd_info.csv → Product details
+3.sales_details.csv → Sales transactions
 2️⃣ ERP System (source_erp)
-
-CUST_AZ12.csv → Additional customer attributes
-
-LOC_A101.csv → Location/region mapping
-
-PX_CAT_G1V2.csv → Product category details
-
+1.CUST_AZ12.csv → Additional customer attributes
+2.LOC_A101.csv → Location/region mapping
+3.PX_CAT_G1V2.csv → Product category details
 🔄 ETL Process
-Extraction
-
+    1.Extraction
 Method: Pull Extraction
-
 Type: Full Extraction
-
 Technique: File Parsing
 
-Transformation
-
+   2.Transformation
 Data Enrichment – enhancing attributes with ERP data
-
 Data Integration – merging CRM & ERP sources
-
 Derived Attributes – calculated fields for analysis
-
 Normalization & Standardization – consistent formats across tables
-
 Business Rules & Logic – applied for sales and product mapping
-
 Data Aggregation – summarized data for reporting
 
-Data Cleaning
-
+  3.Data Cleaning
 Removing duplicates
-
 Data filtering
-
 Handling missing values
-
 Handling invalid values
-
 Removing unwanted spaces
-
 Data type casting
-
 Outlier detection
 
-Loading
-
+  4.Loading
 Type: Batch Processing
-
 Method: Full Load (Truncate & Insert)
-
 Slowly Changing Dimension (SCD): Type 1 (Overwrite)
 
-🏗️ Data Warehouse Design
-
+   🏗️ Data Warehouse Design
 Architecture: Medallion Architecture
-
 Bronze Layer: Raw ingestion from CRM & ERP
-
 Silver Layer: Cleaned & transformed data
-
 Gold Layer: Business-ready tables
 
 Schema Design: Star Schema
 
-Dimension Tables:
+   Dimension Tables:
+1.dim_customer
+2.dim_product
 
-dim_customer
-
-dim_product
-
-Fact Table:
-
+   Fact Table:
 fact_sales
-
-Naming Convention: snake_case
+   Naming Convention: snake_case
 
 📈 Data Analytics
 🔍 Exploratory Data Analysis (EDA) with SQL
 
-Explore all objects in the database
+1.Explore all objects in the database
 
-Explore product categories & subcategories
+2.Explore product categories & subcategories
 
-Find the date of the first and last order
+3.Find the date of the first and last order
 
-Find the youngest and oldest customers
+4.Find the youngest and oldest customers
 
-Calculate total sales
+5.Calculate total sales
 
-Count items sold
+6.Count items sold
 
-Compute average selling price
+7.Compute average selling price
 
-Find total number of orders
+8.Find total number of orders
 
-Find total number of customers
+9.Find total number of customers
 
-Find total number of products
+10.Find total number of products
 
-Count customers that have placed an order
+11.Count customers that have placed an order
 
 (These EDA steps were performed using basic SQL queries.)
 
 📊 Advanced Analytics with SQL
 
-Using complex queries, window functions, CTEs, subqueries, and reports:
+1.Using complex queries, window functions, CTEs, subqueries, and reports:
 
-Analyze sales performance over the year (using quick date functions, date_trunc, format)
+2.Analyze sales performance over the year (using quick date functions, date_trunc, format)
 
-Calculate total sales per month and a running total of sales
+3.Calculate total sales per month and a running total of sales
 
-Compute moving average of price over time
+4.Compute moving average of price over time
 
-Compare yearly performance of products to their average sales and previous year’s sales
+5.Compare yearly performance of products to their average sales and previous year’s sales
 
-Identify categories contributing the most to overall sales
+6.Identify categories contributing the most to overall sales
 
-Segment products into cost ranges and count products in each segment
+7.Segment products into cost ranges and count products in each segment
 
 🧑‍🤝‍🧑 Customer Segmentation Report
 
